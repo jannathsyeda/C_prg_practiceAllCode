@@ -1,0 +1,407 @@
+1)stringlenfunction
+#include<stdio.h>
+int main()
+{
+    char s[20]="fahima";
+    int len;
+    len=strlen(s);
+    printf("%d",len);
+
+
+}
+
+2)stringinputlength
+#include<stdio.h>
+int main()
+{
+    char s[50];
+    printf("enter name\n");
+    gets(s);
+  int  lenght=0;
+
+    for(int i=0;s[i]!='\0';i++)
+    {
+        lenght++;
+    }
+    printf("%d",lenght);
+
+}
+
+3)stringOneletter kore print
+#include<stdio.h>
+int main()
+{
+    char s[20]="fahima";
+    int i;
+    for(i=0;s[i]!='\0';i++)
+    {
+        printf("%c\n",s[i]);
+    }
+
+}
+
+
+4)stringcmp_function
+#include<stdio.h>
+int main()
+{
+    char s1[20]="mita haque";
+    char s2[30]="haque";
+
+    int d=strcmp(s1,s2);
+    if(d==0){
+        printf("equal");
+    }else{
+    printf("not equal");
+}
+}
+
+
+5)strcpyfunction
+#include<stdio.h>
+int main()
+{
+    char s1[18]="fahima";
+    char target[10];
+    strcpy(target,s1);
+    printf("%s %s",target,s1);
+}
+
+6)strrevfunction
+#include<stdio.h>
+int main()
+{
+    char s1[20]="fahima";
+
+
+      strrev(s1);
+      printf("%s",s1);
+}
+
+7)stringcat
+#include<stdio.h>
+int main()
+{
+	char s1[20]="ena";
+	char s2[20]="chy";
+	strcat(s1,s2);
+	printf("%s",s1);
+	
+}
+
+8)stringconcatanationWithoutcatfunction
+#include<stdio.h>
+int main()
+{
+    char s1[20]="I'm ena ";
+    char s2[20]="chy";
+    int length=0;
+
+    for(int i=0; s1[i]!='\0'; i++)
+    {
+        length++;
+    }
+
+    printf("%d",length);
+
+
+
+for(int j=0; s2[j]!='\0'; j++)
+{
+    s1[length+j]=s2[j];
+
+}
+printf("%s\n",s1);
+
+}
+
+
+9)stringRevWithoutRevFunction
+#include<stdio.h>
+int main()
+{
+    char s1[30]="minatina",s2[30];
+    int len=strlen(s1);
+    int i, j;
+    for(j=0,i=len-1;i>=0;i--,j++)
+    {
+        s2[j]=s1[i];
+    }
+    s2[j]!='\0';
+    printf("reverse of fahima is:  %s\n ",s2);
+}
+
+10)stringpalindrom
+#include<stdio.h>
+int main()
+{
+    char s1[30],s2[30];
+    printf("Enter any name: ");
+    gets(s1);
+    int len=strlen(s1);
+    int j,i;
+    for(j=0,i=len-1; i>=0; i--,j++)
+    {
+        s2[j]=s1[i];
+    }
+    s2[j]!='\0';
+    printf("reverse of %s is: %s\n",s1,s2);
+
+
+    if(strcmp(s1,s2) == 0)
+    {
+        printf("palindrome");
+    }
+    else
+    {
+
+        printf("Not palindrome");
+    }
+}
+
+
+11)strupr & strlwr function
+#include<stdio.h>
+int main()
+{
+    char s1[30]="fahima FAHIMA";
+    strupr(s1);
+  //char tt=strlwr(s1);
+       // printf("%s",tt);
+
+    printf("%s",s1);
+
+}
+
+
+11)lowertoupperword
+#include<stdio.h>
+int main()
+{
+    char country[]={'B','a','n','g','l','a','s','h'};
+    int i, length;
+    printf("%s\n",country);
+length=7;
+    for(i=0;i<length;i++)
+
+    {
+        if(country[i]>=97 && country[i]<=122)
+        {
+            country[i]='A'+(country[i]-'a');
+
+
+        }
+    }
+    printf("%s\n",country);
+    return 0;
+}
+
+12)string_to_CountVowelConsonantDigitOthers
+#include<stdio.h>
+int main()
+{
+    char str[100], ch;
+    gets(str);
+    int i, vowel, consonant, digit, others, words;
+    i = vowel = consonant = digit = others = words = 0;
+    int wordStart = 0;
+    while((ch = str[i]) != '\0' )
+    {
+
+        if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+                ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
+        {
+            wordStart = 1;
+            vowel++;
+        }
+        else if((ch >= 'a' && ch <='z') ||  (ch>= 'A' && ch <= 'Z')  )
+        {
+            wordStart = 1;
+            consonant++;
+        }
+        else if(ch >= '0' && ch <='9')
+        {
+            wordStart = 1;
+            digit++;
+        }
+        else if(ch == ' ')
+        {
+            if(wordStart == 1){
+                wordStart = 0;
+                words++;
+            }
+            
+        }
+        else
+        {
+            wordStart = 1;
+            others++;
+        }
+
+        i++;
+
+    }
+    words++;
+    printf("V = %d\n", vowel);
+    printf("C = %d\n", consonant);
+    printf("D = %d\n", digit);
+    printf("W = %d\n", words);
+    printf("O = %d\n", others);
+
+
+}
+
+13)shubin_task_133page string_oneword_nichey_nicey_print
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[1000], ch;
+    int isStarted = 0;
+    printf("Enter your string: ");
+    gets(str);
+    int length = strlen(str);
+    for(int i=0; i<length; i++)
+    {
+        if(str[i] >= 'a' && str[i] <= 'z' )
+        {
+            if(isStarted == 0)
+            {
+                isStarted = 1;
+                ch =  str[i] - 32;
+                printf("%c", ch);
+            }
+            else
+            {
+                printf("%c", str[i]);
+            }
+
+
+        }
+        else if( (str[i] >= 'A' && str[i] <= 'Z' ) || (str[i] >= 48 && str[i] <= 57 ) )
+        {
+            if(isStarted == 0)
+            {
+                isStarted = 1;
+            }
+            printf("%c", str[i]);
+        }
+        else
+        {
+            if(isStarted == 1)
+            {
+                isStarted = 0;
+                printf("\n");
+            }
+        }
+    }
+
+}
+
+14)string_to_CountVowelConsonantDigitOthers
+#include<stdio.h>
+int main()
+{
+    char str[100], ch;
+    gets(str);
+    int i, vowel, consonant, digit, others, words;
+    i = vowel = consonant = digit = others = words = 0;
+    int wordStart = 0;
+    while((ch = str[i]) != '\0' )
+    {
+
+        if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+                ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
+        {
+            wordStart = 1;
+            vowel++;
+        }
+        else if((ch >= 'a' && ch <='z') ||  (ch>= 'A' && ch <= 'Z')  )
+        {
+            wordStart = 1;
+            consonant++;
+        }
+        else if(ch >= '0' && ch <='9')
+        {
+            wordStart = 1;
+            digit++;
+        }
+        else if(ch == ' ')
+        {
+            if(wordStart == 1){
+                wordStart = 0;
+                words++;
+            }
+        }
+        else
+        {
+            wordStart = 1;
+            others++;
+        }
+
+        i++;
+
+    }
+    words++;
+    printf("V = %d\n", vowel);
+    printf("C = %d\n", consonant);
+    printf("D = %d\n", digit);
+    printf("W = %d\n", words);
+    printf("O = %d\n", others);
+
+
+}
+
+15)shubin_task_133page string_oneword_nichey_nicey_print
+/*output
+my name is enda hahha
+My
+Name
+Is
+enda
+hahha
+*/
+#include<stdio.h>
+int main()
+{
+    char a[100], ch;
+    gets(a);
+    int isWordStarted = 0, i=0;
+    while( (ch = a[i]) != '\0')
+    {
+        if(ch >= 'a' && ch <= 'z')
+        {
+            if(isWordStarted == 0)
+            {
+                isWordStarted = 1;
+                ch = ch - 32;
+                printf("%c", ch);
+            }
+            else
+            {
+                printf("%c", ch);
+            }
+
+        }
+        else if( (ch >= 'A' && ch <= 'Z')  || (ch >= '0' && ch <= '9'))
+        {
+            if(isWordStarted == 0)
+            {
+                isWordStarted = 1;
+            }
+            printf("%c", ch);
+        }
+        else
+        {
+            if(isWordStarted == 1)
+            {
+                isWordStarted = 0;
+                printf("\n");
+            }
+        }
+        i++;
+    }
+}
+
+
+
